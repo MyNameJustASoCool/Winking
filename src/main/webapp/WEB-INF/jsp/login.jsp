@@ -18,15 +18,10 @@
 			<span class="input-group-addon glyphicon glyphicon-lock"></span>
 			<input name="password" type="password" class="form-control" placeholder="请输入密码">
 		</div><br>
-		<div>
-			<span><input type="radio" value="管理员" name="r1">管理员</span>
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			<span><input type="radio" value="用户" name="r1">用户</span><br/><br/>
-		</div>
 		<span class="label label-danger">${msg}</span><br/>
 		<div style="text-align: center;">
 			<button type="submit" style="width: 80px;text-align: center;" class="btn btn-default">登录</button>
-			<a href="toRegister.do">&nbsp;&nbsp;&nbsp;&nbsp;注册</a>
+			<a href="user/toRegister.do">&nbsp;&nbsp;&nbsp;&nbsp;注册</a>
 		</div>
 	</form>
 	</div>	

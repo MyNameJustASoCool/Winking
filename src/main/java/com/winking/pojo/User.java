@@ -2,32 +2,25 @@ package com.winking.pojo;
 
 public class User {
 	private int id;
-	private String username;
-	private String password;
-	private int roal;
+	private String userAccount;
+	private String userPassword;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+	public String getUserAccount() {
+		return userAccount;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserAccount(String userAccount) {
+		this.userAccount = userAccount;
 	}
-	public String getPassword() {
-		return password;
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public int getRoal() {
-		return roal;
-	}
-	public void setRoal(int roal) {
-		this.roal = roal;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 	
 }

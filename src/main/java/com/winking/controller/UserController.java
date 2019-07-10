@@ -12,7 +12,7 @@ import com.winking.pojo.User;
 import com.winking.service.UserService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 	@Resource(name = "userService")
 	private UserService userService;
@@ -33,6 +33,11 @@ public class UserController {
 	public String toRegister() {
 		return "registerUser";
 	}
+	
+	@RequestMapping("/toShoppingCart")
+	public String toShoppingCart() {
+		return "shoppingCart";
+	}
 	/**
 	 * 用户注册
 	 * @param username
@@ -40,11 +45,11 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/checkUsername")
-	public ModelAndView checkUsername(String username,String password) {
+	public ModelAndView checkUsername(String userAccount,String userPassword) {
 		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		User u = userService.findByUsername(username);
+		user.setUserAccount(userAccount);
+		user.setUserPassword(userPassword);
+		User u = userService.findByUsername(userAccount);
 		ModelAndView mav = new ModelAndView("registerUser");
 		if(u != null) {
 			mav.addObject("msg","用户名已存在");
@@ -58,35 +63,19 @@ public class UserController {
 	 * 角色登录
 	 */
 	@RequestMapping("/loginUser")
-	public ModelAndView loginUser(String username,String password,HttpServletRequest request,String r1) {
-		String radio = r1;
+	public ModelAndView loginUser(String username,String password,HttpServletRequest request,HttpSession session) {
 		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
+		user.setUserAccount(username);
+		user.setUserPassword(password);
 		User u = userService.checkLoginUser(username, password);
-		if(radio.equals("管理员")) {
-			if(u != null && u.getRoal() == 1) {
-				ModelAndView mav = new ModelAndView("adminPage");
-				mav.addObject("username",username);
-				return mav;
-			}else {
-				ModelAndView mav1 = new ModelAndView("login");
-				mav1.addObject("msg","用户名或密码错误");
-				return mav1;
-			}
-		}else if(radio.equals("用户")){
-			if(u != null && u.getRoal() == 0) {
-				ModelAndView mav = new ModelAndView("homePage");
-				mav.addObject("username",username);
-				return mav;
-			}else {
-				ModelAndView mav1 = new ModelAndView("login");
-				mav1.addObject("msg","用户名或密码错误");
-				return mav1;
-			}	
+		if(u != null) {
+			session.setAttribute("USER_SESSION", username);
+			ModelAndView mav = new ModelAndView("homePage");
+			mav.addObject("username", username);
+			return mav;
 		}else {
 			ModelAndView mav1 = new ModelAndView("login");
-			mav1.addObject("msg","请选择角色登录");
+			mav1.addObject("msg","用户名或密码错误");
 			return mav1;
 		}
 	}

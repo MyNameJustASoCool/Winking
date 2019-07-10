@@ -8,7 +8,7 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	User findByUsername(String username);
+	User findByUsername(String userAccount);
 	
 	/**
 	 * ×¢²áÓÃ»§
@@ -21,5 +21,5 @@ public interface UserService {
 	 * @param password
 	 * @return
 	 */
-	User checkLoginUser(String username,String password);
+	User checkLoginUser(String userAccount,String userPassword);
 }
