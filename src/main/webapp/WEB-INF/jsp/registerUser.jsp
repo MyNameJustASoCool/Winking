@@ -24,15 +24,22 @@
 		</div>
 	</form>
 	<script>
-		function checkUsername(){
-		var user = document.getElementById('username').value;
+	function checkUsername(){
+		$(document).ready(function(){			
+		var user = $("#username").val();
 		if(user == null || user == ""){
 			$('#checkUsershow').text("用户名不能为空");
-			$('#btn-login').prop("disabled","disabled");
+			$('#btn-login').prop("disabled","disabled");的
 		}else{
-			$('#btn-login').removeAttr("disabled");
-			$('#checkUsershow').empty();
+			$.post("checkUsername.do",{
+				"username":user
+			},function(data){
+				$("#checkUsershow").html(data);
+			},
+			"text"
+			);
 		}
+	});	
 	}
 	</script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>

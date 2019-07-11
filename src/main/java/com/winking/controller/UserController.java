@@ -1,7 +1,11 @@
 package com.winking.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -55,19 +59,24 @@ public class UserController {
 	 * @param password
 	 * @return
 	 */
-	@RequestMapping("/checkUsername")
-	public ModelAndView checkUsername(String userAccount,String userPassword) {
+	
+	@RequestMapping(value = "/checkUsername",method = RequestMethod.POST)
+	public ModelAndView checkUsername(String username,String password,HttpServletResponse response) throws IOException{
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
 		User user = new User();
-		user.setUserAccount(userAccount);
-		user.setUserPassword(userPassword);
-		User u = userService.findByUsername(userAccount);
+		user.setUserAccount(username);
+		user.setUserPassword(password);
+		User u = userService.findByUsername(username);
 		ModelAndView mav = new ModelAndView("registerUser");
 		if(u != null) {
-			mav.addObject("msg","用户名已存在");
+			out.println("帐号已存在");
 		}else {
 			userService.registerUser(user);		
-			mav.addObject("success","注册成功");
+			out.println("注册成功");
 		}
+		out.flush();
+		out.close();
 		return mav;
 	}
 	/**

@@ -8,6 +8,6 @@
 	</select>
 	
 	<insert id="registerUser" parameterType="com.winking.pojo.User">
-		insert into user(username,password) values(#{username},#{password})
+		insert into user(user_account,user_password) values(#{username},#{password})
 	</insert>
 </mapper>
