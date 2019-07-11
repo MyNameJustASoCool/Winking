@@ -21,7 +21,7 @@
 		<span class="label label-danger">${msg}</span><br/>
 		<div style="text-align: center;">
 			<button type="submit" style="width: 80px;text-align: center;" class="btn btn-default">登录</button>
-			<a href="user/toRegister.do">&nbsp;&nbsp;&nbsp;&nbsp;注册</a>
+			<a href="toRegister.do">&nbsp;&nbsp;&nbsp;&nbsp;注册</a>
 		</div>
 	</form>
 	</div>	

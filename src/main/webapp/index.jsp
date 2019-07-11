@@ -34,7 +34,7 @@
 				<li><a href="toShoppingCart.do"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a></li>
 				<li><a href="#support"><span class="glyphicon glyphicon-headphones"></span> Support</a></li>
 			</ul>
-			<a href="user/toLogin.do"><span class="glyphicon glyphicon-user" style="position: absolute;right: 100px;top: 15px;color: white;">&nbsp;未登录</span></a>	
+			<a href="toLogin.do"><span class="glyphicon glyphicon-user" style="position: absolute;right: 100px;top: 15px;color: white;">&nbsp;未登录</span></a>	
 		</div>
 	</div>
 	</div>

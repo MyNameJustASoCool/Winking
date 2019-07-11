@@ -32,11 +32,11 @@
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="toHomePage.do"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-				<li class="active"><a href="toShoppingCart.do"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a></li>
+				<li class="active"><a href="user/toShoppingCart.do"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a></li>
 				<li><a href="#support"><span class="glyphicon glyphicon-headphones"></span> Support</a></li>
 			</ul>
 			<a><span class="glyphicon glyphicon-user" style="position: absolute;right: 100px;top: 15px;color: white;">&nbsp;${username }</span></a>	
-			<a href="loginOut.do"><span class="glyphicon glyphicon-off" style="position: absolute;right: 30px;top: 15px;color: white;">退出</span></a>
+			<a href="user/loginOut.do"><span class="glyphicon glyphicon-off" style="position: absolute;right: 30px;top: 15px;color: white;">退出</span></a>
 		</div>
 	</div>
 	</div>

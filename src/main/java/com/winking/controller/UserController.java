@@ -6,13 +6,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.winking.pojo.User;
 import com.winking.service.UserService;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 	@Resource(name = "userService")
 	private UserService userService;
@@ -26,6 +26,14 @@ public class UserController {
 		return "login";
 	}
 	/**
+	 * 跳转到主页
+	 * @return
+	 */
+	@RequestMapping("/toHomePage")
+	public String toHomePage() {
+		return "homePage";
+	}
+	/**
 	 * 跳转到注册页面
 	 * @return
 	 */
@@ -33,7 +41,10 @@ public class UserController {
 	public String toRegister() {
 		return "registerUser";
 	}
-	
+	/**
+	 * 跳转到购物车
+	 * @return
+	 */
 	@RequestMapping("/toShoppingCart")
 	public String toShoppingCart() {
 		return "shoppingCart";
